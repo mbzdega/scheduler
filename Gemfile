@@ -7,9 +7,10 @@ gem 'rails', '3.2.2'
 
 gem 'sqlite3'
 gem 'simple_form' # Do $ rails generate simple_form:install (creates the needed configs)
+gem 'twitter-bootstrap-rails' # Do $ rails generate bootstrap:install
 
 group :production do
-  gem 'pg'
+  gem 'pg'  
 end
 
 group :development do
@@ -28,7 +29,6 @@ group :assets do
   # gem 'therubyracer'
 
   gem 'uglifier', '>= 1.0.3'
-  gem 'twitter-bootstrap-rails' # Do $ rails generate bootstrap:install
 end
 
 gem 'jquery-rails'
