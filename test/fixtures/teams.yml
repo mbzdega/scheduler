@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  home_field: MyString
+  location: MyString
+  rank: 1
+
+two:
+  name: MyString
+  home_field: MyString
+  location: MyString
+  rank: 1

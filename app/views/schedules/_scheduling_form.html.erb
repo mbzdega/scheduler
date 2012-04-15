@@ -1,0 +1,15 @@
+<h2> Use the options below to create a schedule </h2>
+
+<%= simple_form_for @schedule, :html => { :class => 'form-vertical' } do |f| %>
+  <%= f.input :name, :label => "League Name" %>
+  <%= f.input :manager, :label => "League Manager's Name" %>
+  <%= f.association :heuristic, :as => :radio_buttons %>
+	<%= f.association :teams, :as => :check_boxes %>
+
+
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                schedules_path, :class => 'btn' %>
+  </div>
+<% end %>

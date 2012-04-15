@@ -1,0 +1,21 @@
+<%- model_class = @schedule.class -%>
+<h1><%=t '.title', :default => model_class.model_name.human %></h1>
+
+<p>
+  <strong><%= model_class.human_attribute_name(:name) %>:</strong><br>
+  <%= @schedule.name %>
+</p>
+<p>
+  <strong><%= model_class.human_attribute_name(:manager) %>:</strong><br>
+  <%= @schedule.manager %>
+</p>
+<p>
+  <strong><%= model_class.human_attribute_name(:heuristic_id) %>:</strong><br>
+  <%= @schedule.heuristic_id %>
+</p>
+
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+            edit_schedule_path(@schedule), :class => 'btn' %>
+
+
+<%= render "secondary_form" %>

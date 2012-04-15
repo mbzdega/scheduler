@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  team_1: MyString
+  team_2: MyString
+  field: MyString
+  play_time: 2012-03-26 21:36:00
+
+two:
+  team_1: MyString
+  team_2: MyString
+  field: MyString
+  play_time: 2012-03-26 21:36:00
