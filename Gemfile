@@ -8,6 +8,9 @@ gem 'rails', '3.2.2'
 gem 'sqlite3'
 gem 'simple_form' # Do $ rails generate simple_form:install (creates the needed configs)
 
+group :production do
+  gem 'pg'
+end
 
 group :development do
   gem 'rails-dev-boost', :git => 'git://github.com/thedarkone/rails-dev-boost.git', 
@@ -16,6 +19,7 @@ end
 
 # Gems used only for assets and not required
 # in production environments by default.
+
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
