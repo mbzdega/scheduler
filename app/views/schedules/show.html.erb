@@ -1,28 +1,93 @@
 <%- model_class = @schedule.class -%>
-<h1><%=t '.title', :default => model_class.model_name.human %></h1>
+<h1><%=t '.title', :default => model_class.model_name.human %> Details</h1>
 
 <p>
-  <strong><%= model_class.human_attribute_name(:name) %>:</strong><br>
+  <strong><%= model_class.human_attribute_name(:name) %>:  </strong>
   <%= @schedule.name %>
 </p>
 <p>
-  <strong><%= model_class.human_attribute_name(:manager) %>:</strong><br>
+  <strong><%= model_class.human_attribute_name(:manager) %>:  </strong>
   <%= @schedule.manager %>
 </p>
 <p>
-  <strong><%= model_class.human_attribute_name(:heuristic_id) %>:</strong><br>
-  <%= @schedule.heuristic_id %>
+  <strong><%= model_class.human_attribute_name(:heuristic_id) %>:  </strong>
+  <%= @schedule.heuristic.name %>
 </p>
+</br>
 
-<p>
-  <strong>Teams:</strong><br>
-  <%= @teams %>
-</p>
+<!-- Table display of all Teams in the League -->
 
-<p>
-  <strong>Matches:</strong><br>
-  <%= @matches %>
-</p>
+<%- model_class = Team.new.class -%>
+<h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:home_field) %></th>
+      <th><%= model_class.human_attribute_name(:rank) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @teams.each do |team| %>
+      <tr>
+        <td><%= link_to team.id, team_path(team) %></td>
+        <td><%= team.name %></td>
+        <td><%= team.home_field %></td>
+        <td><%= team.rank %></td>
+        <td>
+	        <%= link_to t('.show', :default => t("helpers.links.show")),
+                      team_path(team), :class => 'btn btn-mini' %>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_team_path(team), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      team_path(team),
+                      :method => :delete,
+                      :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</br>
+
+<!-- Table display of all Matches in the League -->
+
+<%- model_class = Match.new.class -%>
+<h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:Team1) %></th>
+      <th><%= model_class.human_attribute_name(:Team2) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @matches.each do |match| %>
+      <tr>
+        <td><%= link_to match.id, match_path(match) %></td>
+        <td><%= match.teams[0].name %></td>
+        <td><%= match.teams[1].name %></td>
+        <td>
+	        <%= link_to t('.show', :default => t("helpers.links.show")),
+                      match_path(match), :class => 'btn btn-mini' %>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_match_path(match), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      match_path(match),
+                      :method => :delete,
+                      :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),

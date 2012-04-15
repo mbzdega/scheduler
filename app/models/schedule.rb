@@ -11,7 +11,7 @@ class Schedule < ActiveRecord::Base
 
 # Methods
 
-def list_teams
+def list_team_names
   team_list = self.teams
   teams = []
   team_list.each do |team|

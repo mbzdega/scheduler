@@ -22,6 +22,8 @@
         <td><%= team.rank %></td>
         <td><%=l team.created_at %></td>
         <td>
+	        <%= link_to t('.show', :default => t("helpers.links.show")),
+                      team_path(team), :class => 'btn btn-mini' %>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_team_path(team), :class => 'btn btn-mini' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
