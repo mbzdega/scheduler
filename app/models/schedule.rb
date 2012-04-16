@@ -2,10 +2,8 @@ class Schedule < ActiveRecord::Base
 
 # Associations
   has_many :matches
-  belongs_to :heuristic
-  
-  has_many :enrollments
-  has_many :teams, :through => :enrollments
+  belongs_to :heuristic  
+  belongs_to :season
 
 # Callbacks
 

@@ -4,6 +4,7 @@ class CreateSchedules < ActiveRecord::Migration
       t.string :name
       t.string :manager
       t.integer :heuristic_id
+      t.integer :season_id
 
       t.timestamps
     end

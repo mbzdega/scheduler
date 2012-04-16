@@ -1,5 +1,9 @@
 Scheduler::Application.routes.draw do
 
+  resources :seasons
+
+  resources :leagues
+
   get "matches/new"
   get "matches/create"
   get "matches/show"

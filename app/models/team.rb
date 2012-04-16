@@ -5,6 +5,6 @@ class Team < ActiveRecord::Base
   has_many :matches, :through => :caps
   
   has_many :enrollments
-  has_many :schedules, :through => :enrollments
+  has_many :seasons, :through => :enrollments
   
 end

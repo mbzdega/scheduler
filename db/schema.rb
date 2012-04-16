@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120414214852) do
+ActiveRecord::Schema.define(:version => 20120416015643) do
 
   create_table "caps", :force => true do |t|
     t.integer  "team_id"
@@ -21,10 +21,10 @@ ActiveRecord::Schema.define(:version => 20120414214852) do
   end
 
   create_table "enrollments", :force => true do |t|
-    t.integer  "schedule_id"
+    t.integer  "season_id"
     t.integer  "team_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "fields", :force => true do |t|
@@ -36,6 +36,13 @@ ActiveRecord::Schema.define(:version => 20120414214852) do
 
   create_table "heuristics", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "leagues", :force => true do |t|
+    t.string   "name"
+    t.string   "manager"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -52,6 +59,7 @@ ActiveRecord::Schema.define(:version => 20120414214852) do
     t.string   "name"
     t.string   "manager"
     t.integer  "heuristic_id"
+    t.integer  "season_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end
@@ -59,6 +67,14 @@ ActiveRecord::Schema.define(:version => 20120414214852) do
   create_table "schedules_teams", :id => false, :force => true do |t|
     t.integer "schedule_id"
     t.integer "team_id"
+  end
+
+  create_table "seasons", :force => true do |t|
+    t.string   "name"
+    t.date     "date"
+    t.integer  "league_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "team_schedules", :force => true do |t|

@@ -6,6 +6,13 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+leagues = League.create([
+  {name: 'Iowa Youth Soccer', manager: 'Teddy B'}])
+  
+seasons = Season.create([
+  {name: 'Spring', date: '2009', league_id: '1'},
+  {name: 'Fall', date: '2010', league_id: '1'}])
+
 teams = Team.create([
   {name: 'Team1', home_field: 'field1', location: 'field1', rank: '5'},
   {name: 'Team2', home_field: 'field1', location: 'field1', rank: '1'},
