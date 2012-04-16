@@ -10,8 +10,8 @@ leagues = League.create([
   {name: 'Iowa Youth Soccer', manager: 'Teddy B'}])
   
 seasons = Season.create([
-  {name: 'Spring', date: '2009', league_id: '1'},
-  {name: 'Fall', date: '2010', league_id: '1'}])
+  {name: 'Spring 2012', league_id: '1'},
+  {name: 'Fall 2012', league_id: '1'}])
 
 teams = Team.create([
   {name: 'Team1', home_field: 'field1', location: 'field1', rank: '5'},
@@ -26,7 +26,13 @@ teams = Team.create([
   {name: 'Team10', home_field: 'field3', location: 'field3', rank: '9'},
   {name: 'Team11', home_field: 'field6', location: 'field6', rank: '6'},
   {name: 'Team12', home_field: 'field8', location: 'field8', rank: '2'}])
-  
+
+enrollments = Enrollment.create([
+  {season_id: '1', team_id: '1'},
+  {season_id: '1', team_id: '3'},
+  {season_id: '1', team_id: '5'},
+  {season_id: '1', team_id: '7'},])
+
 fields = Field.create([
   {name: 'Field1', field_num: '1'},
   {name: 'Field2', field_num: '2'},

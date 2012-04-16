@@ -1,15 +1,23 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = @league.class -%>
+<h1><%=t '.title', :default => model_class.model_name.human %></h1>
 
 <p>
-  <b>Name:</b>
+  <strong><%= model_class.human_attribute_name(:name) %>:</strong><br>
   <%= @league.name %>
 </p>
-
 <p>
-  <b>Manager:</b>
+  <strong><%= model_class.human_attribute_name(:manager) %>:</strong><br>
   <%= @league.manager %>
 </p>
 
-
-<%= link_to 'Edit', edit_league_path(@league) %> |
-<%= link_to 'Back', leagues_path %>
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              leagues_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_league_path(@league), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              league_path(@league),
+              :method => 'delete',
+              :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+              :class => 'btn btn-danger' %>
+</div>

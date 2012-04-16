@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120416015643) do
+ActiveRecord::Schema.define(:version => 20120416021954) do
 
   create_table "caps", :force => true do |t|
     t.integer  "team_id"
@@ -71,7 +71,6 @@ ActiveRecord::Schema.define(:version => 20120416015643) do
 
   create_table "seasons", :force => true do |t|
     t.string   "name"
-    t.date     "date"
     t.integer  "league_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
