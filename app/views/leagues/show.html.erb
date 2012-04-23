@@ -1,18 +1,11 @@
-<%- model_class = @league.class -%>
-<h1><%=t '.title', :default => model_class.model_name.human %></h1>
+<!-- Table display of all the League Information-->
 
-<p>
-  <strong><%= model_class.human_attribute_name(:name) %>:</strong><br>
-  <%= @league.name %>
-</p>
-<p>
-  <strong><%= model_class.human_attribute_name(:manager) %>:</strong><br>
-  <%= @league.manager %>
-</p>
+<h1>League Information</h1>
+</br>
+<p><strong>League Name:  </strong> <%= @league.name %></p>
+<p><strong>League Manager: </strong><%= @league.manager %></p>
 
 <div class="form-actions">
-  <%= link_to t('.back', :default => t("helpers.links.back")),
-              leagues_path, :class => 'btn'  %>
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
               edit_league_path(@league), :class => 'btn' %>
   <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
@@ -21,3 +14,26 @@
               :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
               :class => 'btn btn-danger' %>
 </div>
+
+<!-- Table display of all the Seasons in the League -->
+
+<h1>Seasons</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @seasons.each do |season| %>
+      <tr>
+        <td><%= link_to season.name, season_path(season) %></td>
+        <td>
+	        <%= link_to t('.show', :default => t("helpers.links.show")),
+                      season_path(season), :class => 'btn btn-mini' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

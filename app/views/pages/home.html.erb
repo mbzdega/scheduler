@@ -1,1 +1,24 @@
-<h3>Home page</h3>
+
+<%- model_class = League.new.class -%>
+<h1>Find your League Below or Login</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:manager) %></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @leagues.each do |league| %>
+      <tr>
+        <td><%= league.name %></td>
+        <td><%= league.manager %></td>
+        <td>
+	        <%= link_to t('.show', :default => t("helpers.links.show")),
+                      league_path(league), :class => 'btn btn-mini' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
