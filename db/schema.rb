@@ -11,11 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120424015822) do
+ActiveRecord::Schema.define(:version => 20120424223556) do
 
   create_table "caps", :force => true do |t|
     t.integer  "team_id"
     t.integer  "match_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "divisions", :force => true do |t|
+    t.string   "name"
+    t.integer  "season_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -95,6 +102,7 @@ ActiveRecord::Schema.define(:version => 20120424015822) do
     t.integer  "rank"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "gender"
   end
 
 end

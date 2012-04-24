@@ -5,11 +5,37 @@ class LeaguesController < ApplicationController
     @leagues = League.all
   end
 
-  # GET /leagues/1
+  # GET /leagues/:id
   def show
     @league = League.find(params[:id])
     @current_season = @league.seasons.where(:current => true).first
     @current_schedule = @current_season.final_schedule
+  end
+  
+  # GET /league/:id/teams
+  def teams
+    @league = League.find(params[:id])
+    @current_season = @league.seasons.where(:current => true).first
+    @teams = @current_season.teams
+  end
+  
+  def fields
+    @league = League.find(params[:id])
+    @current_season = @league.seasons.where(:current => true).first
+  end
+  
+  # GET /league/:id/past_seasons
+  def past_seasons
+    @league = League.find(params[:id])
+    @past_seasons = @league.seasons.where('current = ?', false).all
+  end
+  
+  def rules
+    @league = League.find(params[:id])
+  end
+  
+  def contacts
+    @league = League.find(params[:id])
   end
 
   # GET /leagues/new

@@ -6,16 +6,22 @@
 	<li class="active"><%= link_to league_path(@league) do %>
 		  <i class="icon-home icon-white"></i> Home
 		<% end %></li>
+	<li class="active"><%= link_to rules_league_path(@league) do %>
+			  <i class="icon-flag icon-white"></i> Rules
+			<% end %></li>
 	<li class="active"><%= link_to schedule_path(@current_schedule) do %>
 		  <i class="icon-calendar icon-white"></i> Schedule
 		<% end %></li>
-	<li class="active"><%= link_to teams_path(@league) do %>
+	<li class="active"><%= link_to  teams_league_path(@league) do %>
 		 	<i class="icon-user icon-white"></i> Teams
 			<% end %></li>
-	<li class="active"><%= link_to league_path do %>
+	<li class="active"><%= link_to  fields_league_path(@league) do %>
+			<i class="icon-picture icon-white"></i> Fields
+	<% end %></li>
+	<li class="active"><%= link_to past_seasons_league_path(@league) do %>
 		  <i class="icon-th icon-white"></i> Past Seasons
 			<% end %></li>
-	<li class="active"><%= link_to league_path do %>
+	<li class="active"><%= link_to contacts_league_path(@league) do %>
 			<i class="icon-envelope icon-white"></i> Contacts
 			<% end %></li>
 </ul>

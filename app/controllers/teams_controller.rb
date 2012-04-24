@@ -2,6 +2,7 @@ class TeamsController < ApplicationController
   # GET /teams
   # GET /teams.json
   def index
+    
     @teams = Team.all
 
     respond_to do |format|

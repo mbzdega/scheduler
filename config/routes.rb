@@ -1,19 +1,25 @@
 Scheduler::Application.routes.draw do
 
-  resources :seasons
-
-  resources :leagues
-
-  get "matches/new"
-  get "matches/create"
-  get "matches/show"
+  resources :divisions
 
   root :to => 'pages#home'
-  resources :teams, :schedules, :fields, :matches
+  
+  resources :leagues do
+    member do
+      get 'teams'
+      get 'fields'
+      get 'past_seasons'
+      get 'contacts'
+      get 'rules'  
+    end
+  end
+  
+  resources :seasons, :teams, :schedules, :fields, :matches
   
 end 
   # The priority is based upon order of creation:
   # first created -> highest priority.
+  # Place resources at the bottom of the route lists
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
