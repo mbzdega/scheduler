@@ -1,39 +1,39 @@
 <!-- Table display of all the League Information-->
 
-<h1>League Information</h1>
-</br>
-<p><strong>League Name:  </strong> <%= @league.name %></p>
-<p><strong>League Manager: </strong><%= @league.manager %></p>
+<%= render 'partials/secondary_nav' %>
 
-<div class="form-actions">
-  <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_league_path(@league), :class => 'btn' %>
-  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              league_path(@league),
-              :method => 'delete',
-              :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
-              :class => 'btn btn-danger' %>
+<div class="hero-unit">
+	<h2>News</h3></br>
+	<h3>Story 1</h3>
+	<p>News story... is is a simple hero unit, a simple jumbotron-style 
+		 component for calling extra attention to featured content or information.</p>
+	<p><a class="btn btn-primary btn-large">Learn more</a></p>
 </div>
 
-<!-- Table display of all the Seasons in the League -->
+<div class="hero-unit">
+	<h2>League Information<h3></br>
+	<h3>League Play</h3>
+	<p>Contact the coaches of the teams in the area you are traveling to for updates. 
+		It is recommended each team have a phone tree to 
+		alert players of changes. We will do our best to notify all teams when a location closes</p>
+	</br>
+	
+	<h3>Scheduled Match Policy</h3>
+	<p>After schedules are finalized at the start of each season, 
+		no match may be canceled or rescheduled for any reason other than 
+		weather related field closures. Once a match has started, the referee has the 
+		responsibility to stop a match if conditions become unplayable 
+		or dangerous to continue. </p>
+	
+	<h3>Substituting Player Policy</h3>
 
-<h1>Seasons</h1>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @seasons.each do |season| %>
-      <tr>
-        <td><%= link_to season.name, season_path(season) %></td>
-        <td>
-	        <%= link_to t('.show', :default => t("helpers.links.show")),
-                      season_path(season), :class => 'btn btn-mini' %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+	<p>The IPSL does not have a roster requirement, although we do require all 
+	teams to play their scheduled matches. That is the team that was placed 
+	in the division and scheduled. You can play any player from your club in
+	a scheduled match as long as you do not substantially change the level
+	of competition. It is the IPSL policy, that as a courtesy to the opposition,
+	if you need to add players from another team, call the opposing coach and 
+	inform them of your situation. Otherwise you risk the match declared a 
+	forfeit if the substituted players create a mismatch.</p>
+	
+</div>

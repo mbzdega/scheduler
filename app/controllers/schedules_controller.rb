@@ -6,8 +6,8 @@ class SchedulesController < ApplicationController
 
   def show
     @schedule = Schedule.find(params[:id])
-    @teams = @schedule.teams
     @matches = @schedule.matches
+    @league = League.find(Season.find(@schedule.season_id).league_id)
   end
 
   def new

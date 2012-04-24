@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120421235642) do
+ActiveRecord::Schema.define(:version => 20120424015822) do
 
   create_table "caps", :force => true do |t|
     t.integer  "team_id"
@@ -53,6 +53,9 @@ ActiveRecord::Schema.define(:version => 20120421235642) do
     t.datetime "play_time"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.integer  "score1"
+    t.integer  "score2"
+    t.boolean  "played"
   end
 
   create_table "schedules", :force => true do |t|
@@ -75,6 +78,7 @@ ActiveRecord::Schema.define(:version => 20120421235642) do
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
     t.integer  "final_schedule"
+    t.boolean  "current"
   end
 
   create_table "team_schedules", :force => true do |t|

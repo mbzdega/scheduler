@@ -7,11 +7,11 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 leagues = League.create([
-  {name: 'Iowa Youth Soccer', manager: 'Teddy B'}])
+  {name: 'Iowa Premier Soccer League', manager: 'Teddy B'}])
   
 seasons = Season.create([
-  {name: 'Spring 2012', league_id: '1'},
-  {name: 'Fall 2012', league_id: '1'}])
+  {name: 'Spring 2012', league_id: '1', current: true, final_schedule: '1'},
+  {name: 'Fall 2012', league_id: '1', current: false}])
 
 teams = Team.create([
   {name: 'Team1', home_field: 'field1', location: 'field1', rank: '5'},
@@ -44,5 +44,21 @@ fields = Field.create([
   {name: 'Field8', field_num: '3'}])
   
 heuristics = Heuristic.create([
-  {name: 'random'},
-  {name: 'round robin'}])
+  {name: 'round robin'},
+  {name: 'random'}])
+
+schedules = Schedule.create([
+  {name: 'test_schedule', manager: 'teddy_b', heuristic_id: '1', season_id: '1'}])
+
+matches = Match.create([
+  {schedule_id: '1', score1: '1', score2: '2', played: true},
+  {schedule_id: '1', score1: '0', score2: '0', played: false},
+  {schedule_id: '1', played: false}])
+  
+caps = Cap.create([
+  {team_id: '1', match_id: '1'},
+  {team_id: '4', match_id: '1'},
+  {team_id: '2', match_id: '2'},
+  {team_id: '3', match_id: '2'},
+  {team_id: '1', match_id: '3'},
+  {team_id: '3', match_id: '3'}])

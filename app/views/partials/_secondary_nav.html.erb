@@ -1,0 +1,22 @@
+<div class="page-header">
+	<h1><%= @league.name %></h1>
+</div>
+
+<ul class="nav nav-pills">
+	<li class="active"><%= link_to league_path(@league) do %>
+		  <i class="icon-home icon-white"></i> Home
+		<% end %></li>
+	<li class="active"><%= link_to schedule_path(@current_schedule) do %>
+		  <i class="icon-calendar icon-white"></i> Schedule
+		<% end %></li>
+	<li class="active"><%= link_to teams_path(@league) do %>
+		 	<i class="icon-user icon-white"></i> Teams
+			<% end %></li>
+	<li class="active"><%= link_to league_path do %>
+		  <i class="icon-th icon-white"></i> Past Seasons
+			<% end %></li>
+	<li class="active"><%= link_to league_path do %>
+			<i class="icon-envelope icon-white"></i> Contacts
+			<% end %></li>
+</ul>
+
