@@ -1,7 +1,7 @@
 Scheduler::Application.routes.draw do
 
-  resources :divisions
-
+  get "users/new"
+  
   root :to => 'pages#home'
   
   resources :leagues do
@@ -14,7 +14,10 @@ Scheduler::Application.routes.draw do
     end
   end
   
-  resources :seasons, :teams, :schedules, :fields, :matches
+  resources :users
+  match '/signup' => 'users#new'
+  
+  resources :seasons, :teams, :schedules, :fields, :matches, :divisions
   
 end 
   # The priority is based upon order of creation:

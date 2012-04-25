@@ -11,11 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120424223556) do
+ActiveRecord::Schema.define(:version => 20120425011900) do
 
   create_table "caps", :force => true do |t|
     t.integer  "team_id"
     t.integer  "match_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "contracts", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "team_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -104,5 +111,16 @@ ActiveRecord::Schema.define(:version => 20120424223556) do
     t.datetime "updated_at", :null => false
     t.string   "gender"
   end
+
+  create_table "users", :force => true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.integer  "age"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.string   "encrypted_password"
+  end
+
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
 
 end
