@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120425011900) do
+ActiveRecord::Schema.define(:version => 20120425032158) do
 
   create_table "caps", :force => true do |t|
     t.integer  "team_id"
@@ -119,6 +119,7 @@ ActiveRecord::Schema.define(:version => 20120425011900) do
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
     t.string   "encrypted_password"
+    t.string   "salt"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

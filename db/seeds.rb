@@ -7,7 +7,8 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 #users = User.create([
-#  {name: 'Matt', email: 'mbzdega@gmail.com', age: 28}])
+#  {name: 'Matt', email: 'mbzdega@gmail.com', age: 28, password: 'foobar',
+#   password_confirmation: 'foobar'}])
 
 leagues = League.create([
   {name: 'Iowa Premier Soccer League', manager: 'Teddy B'}])
