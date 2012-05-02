@@ -42,21 +42,13 @@
 </table>
 
 <!-- Table display of all Schedule Information -->
-
-<h1>Schedule Creation Details</h1>
-<table class ="table table-condensed">
-	<thead>
-		<tr>
-			<th>Name</th>
-			<th>Manager</th>
-			<th>Heuristic</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td><%= @schedule.name %></td>
-			<td><%= @schedule.manager %></td>
-			<td><%= @schedule.heuristic.name %></td>
-		</tr>
-	</tbody>
-</table>
+</br>
+<div class="row-fluid">
+	<div class="span12">
+		<h2>Schedule Creation Details</h2>
+		</br>
+		<p><strong>Schedule Name:</strong> <%= @schedule.name %></p>
+		<p><strong>Manager:</strong> <%= @schedule.manager %></p>
+		<p><strong>Heuristic:</strong> <%= @schedule.heuristic.name %></p>
+	</div>
+</div>

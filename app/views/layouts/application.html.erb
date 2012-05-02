@@ -22,19 +22,21 @@
 		<%= render 'partials/navbar' %>
 
     <div class="container-fluid">
+			<div class="row-fluid">
+				<div class="span4">
+					<% flash.each do |key, value| %>
+						<div class="alert alert-<%= key %>"><%= value %></div>
+					<% end %>
+				</div>
+			</div>
       <div class="row-fluid">
-        <div class="span2">
-					<%= render 'partials/sidebar' %>
-        </div><!--/span-->
-        <div class="span10">
-						<% flash.each do |key, value| %>
-							<div class="alert alert-<%= key %>"><%= value %></div>
-							<% end %>
+        <div class="span12">
           <%= yield %>
         </div>
       </div><!--/row-->
 
-      <footer>
+      <footer class="navbar navbar-fixed-bottom">
+				<%= debug(params) if Rails.env.development? %>
       </footer>
 
     </div> <!-- /container -->

@@ -1,4 +1,7 @@
 module SchedulesHelper
+
+# Helper methods are automatically available to views.  To make them available to controllers
+# add them to the application_controller with Include SchedulesHelper
   
   def round_robin(schedule)
     teams = schedule.team_ids

@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120425032158) do
+ActiveRecord::Schema.define(:version => 20120428211108) do
+
+  create_table "assignments", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "role_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "caps", :force => true do |t|
     t.integer  "team_id"
@@ -54,6 +61,12 @@ ActiveRecord::Schema.define(:version => 20120425032158) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "jobs", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "leagues", :force => true do |t|
     t.string   "name"
     t.string   "manager"
@@ -70,6 +83,12 @@ ActiveRecord::Schema.define(:version => 20120425032158) do
     t.integer  "score1"
     t.integer  "score2"
     t.boolean  "played"
+  end
+
+  create_table "roles", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "schedules", :force => true do |t|
@@ -120,6 +139,11 @@ ActiveRecord::Schema.define(:version => 20120425032158) do
     t.datetime "updated_at",         :null => false
     t.string   "encrypted_password"
     t.string   "salt"
+    t.boolean  "admin"
+    t.boolean  "player"
+    t.boolean  "coach"
+    t.boolean  "team_manager"
+    t.boolean  "league_manager"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

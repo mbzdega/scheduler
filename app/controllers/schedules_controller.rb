@@ -1,5 +1,6 @@
 class SchedulesController < ApplicationController
 
+
   def index
     @schedules = Schedule.all
   end
@@ -15,23 +16,6 @@ class SchedulesController < ApplicationController
   end
     
   def create 
-    def round_robin(schedule)
-      teams = schedule.team_ids
-      x = 0
-      while x < teams.length
-        y = x + 1    
-        while y < teams.length
-          team1 = Team.find(teams[x])
-          team2 = Team.find(teams[y])
-          @match = Match.create
-          @match.teams.push(team1)
-          @match.teams.push(team2)
-          @schedule.matches.push(@match)
-          y += 1
-        end
-        x += 1
-      end
-    end
     
     @schedule = Schedule.new(params[:schedule])    
     round_robin(@schedule)

@@ -6,9 +6,24 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-#users = User.create([
-#  {name: 'Matt', email: 'mbzdega@gmail.com', age: 28, password: 'foobar',
-#   password_confirmation: 'foobar'}])
+users = User.create([
+  {name: 'admin', email: 'admin@gmail.com', age: 28, password: 'admin', password_confirmation: 'admin',
+    admin: true, player: true, coach: true, team_manager: true, league_manager: true},
+    
+  {name: 'player', email: 'player@gmail.com', age: 23, password: 'player', password_confirmation: 'player',
+    admin: false, player: true, coach: false, team_manager: false, league_manager: false},
+    
+  {name: 'team_manager', email: 'team_manager@gmail.com', age: 24, 
+    password: 'team_manager', password_confirmation: 'team_manager',
+    admin: false, player: false, coach: false, team_manager: true, league_manager: false},
+    
+  {name: 'league_manager', email: 'league_manager@gmail.com', age: 25, 
+    password: 'league_manager', password_confirmation: 'league_manager',
+    admin: false, player: false, coach: false, team_manager: false, league_manager: true}])
+
+contracts = Contract.create([
+  {user_id: 1, team_id: 1},
+  {user_id: 2, team_id: 1}])
 
 leagues = League.create([
   {name: 'Iowa Premier Soccer League', manager: 'Teddy B'}])

@@ -1,10 +1,15 @@
 class User < ActiveRecord::Base
 # Attributes
   attr_accessor :password #creates a virtual attr :password
-  attr_accessible :name, :email, :password, :password_confirmation, :age
+  attr_accessible :name, :email, :password, :password_confirmation, :age,
+                  :admin, :player, :coach, :team_manager, :league_manager
 
 # Associations
   has_many :contracts
+  has_many :teams, :through => :contracts
+  
+  has_many :assignments
+  has_many :roles, :through => :assignments
   
 # Validations
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -17,7 +22,7 @@ class User < ActiveRecord::Base
                     :uniqueness => { :case_sensitive => false }
                     
   validates :password, :presence => true,
-                       :length => { :within => 6..40 },
+                       :length => { :within => 3..40 },
                        :confirmation => true  
                        # automatically creates virtual attr password_confirmation
 
@@ -37,6 +42,12 @@ class User < ActiveRecord::Base
     return user if user.has_password?(submitted_password)
   end
 
+  # similar to code above, but more idiomatically ruby (replaces if-ifelse)
+  def self.authenticate_with_salt(id, cookie_salt)
+    user = find_by_id(id)
+    (user && user.salt == cookie_salt) ? user : nil
+  end
+  
 # Private Methods
 
 private

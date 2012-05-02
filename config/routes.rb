@@ -1,6 +1,4 @@
 Scheduler::Application.routes.draw do
-
-  get "users/new"
   
   root :to => 'pages#home'
   
@@ -14,8 +12,18 @@ Scheduler::Application.routes.draw do
     end
   end
   
-  resources :users
+  resources :users do
+    member do
+      get 'my_schedule'     
+      get 'teams'
+      get 'leagues'
+    end
+  end
   match '/signup' => 'users#new'
+  
+  resources :sessions, :only => [:new, :create, :destroy]
+  match '/login' => 'sessions#new'
+  match '/logout' => 'sessions#destroy'
   
   resources :seasons, :teams, :schedules, :fields, :matches, :divisions
   
