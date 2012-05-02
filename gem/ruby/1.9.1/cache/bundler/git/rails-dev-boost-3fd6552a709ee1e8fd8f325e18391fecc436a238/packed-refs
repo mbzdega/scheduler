@@ -1,0 +1,14 @@
+# pack-refs with: peeled 
+8c71a756bc6731d2e46992f4a90dde83bfa476fe refs/heads/ref-speed
+c648d229fa981c5f9bcbd8ac6baa520582c248c6 refs/heads/readme
+bd44773edfed92f26fd8ff789e25d1babf1ffbb2 refs/heads/rails-3-2
+56527076b8379e460f7fd641ffd36eea288e80fc refs/heads/rails-2-3
+f2e2cbcd942642a77734ca6acdaf19b3d6e0347f refs/heads/rails-2-2-slow-templates
+0f6e5706ebf070535656fbbb2662def0e8860825 refs/heads/rails-2-2
+74576335555dc6f1c8e8b5297551da4dd0d02296 refs/heads/mongoid-brute-force
+c9692f69ba04270fd539b01bb8ca97dc6a468fc2 refs/heads/mongoid
+a995f0a3734ecf36da74dcce32ed2ba74e25c56d refs/heads/master
+a6691087899ad2b10099e9740559578b322db7dd refs/heads/interdependencies
+83a79182a9c2dcef95d38d544953e41d7a531b99 refs/heads/encoding-fix
+3e051e4ea71ef4261db76b129a1449084d559e0d refs/heads/async
+54ad48fe175a59dee15901ef8ef319030f703750 refs/heads/activeadmin-fix

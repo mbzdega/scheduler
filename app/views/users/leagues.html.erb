@@ -1,0 +1,33 @@
+<h1>My Current Leagues</h1></br>
+
+<% if @my_leagues.empty? %>
+	<h3>You are not a member of any Leagues.</h3></br>  
+	<%= link_to "Join a League here", root_path, :class => "btn" %>
+<% else %>
+<table class="table table-striped table-condensed">
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>Name</th>
+			<th>Gender</th>
+      <th>Home Field</th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @my_teams.each do |team| %>
+      <tr>
+        <td><%= team.id %></td>
+        <td><%= link_to team.name, team_path(team) %></td>
+				<td><%= team.gender %></td>
+        <td><%= team.home_field %></td>
+        <td>
+	        <%= link_to t('.show', :default => t("helpers.links.show")),
+                      team_path(team), :class => 'btn btn-mini' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<% end %>
