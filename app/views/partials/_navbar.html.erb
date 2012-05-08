@@ -9,10 +9,10 @@
         	<span class="icon-bar"></span>
       	</a>
 				
-				<!-- Brand Name -->
+<!-- Brand Name -->
       	<a class="brand" href="/">Scheduler Home</a>
 
-				<!-- Nav Tabs -->
+<!-- Nav Tabs -->
       	<div class="container-fluid nav-collapse">
         	<ul class="nav">	
 						<% if logged_in? %>
@@ -21,39 +21,64 @@
 							<li class="dropdown">					
 								<a class="dropdown-toggle" data-toggle="dropdown" href="#">
 									Teams<b class="caret"></b></a>
+									
+<!-- Team Menu Bar -->
 						 		<ul class="dropdown-menu">
 						  		<li><%= link_to "My Teams", teams_user_path(@current_user) %></li>
-						  		<li><%= link_to "All Teams", teams_path %></li>
+						  		<li><%= link_to "Find a Team", teams_path %></li>
 						
-						    	<li class="divider"></li>
-						  		<li><%= link_to "Join a new team", teams_user_path(@current_user) %></li>
+									<li class="divider"></li>	
+									<% if current_user.player == true %>
+						  			<li><%= link_to "Join a new team" %></li>
+									<% end %>
+
 						  	</ul>
 							</li>
 							
+<!-- League Menu Bar -->
 							<li class="dropdown">					
 								<a class="dropdown-toggle" data-toggle="dropdown" href="#">
 									Leagues<b class="caret"></b></a>
 						 		<ul class="dropdown-menu">
 						  		<li><%= link_to "My Leagues", leagues_user_path(@current_user) %></li>
-						  		<li><%= link_to "All Leagues", leagues_path %></li>
+						  		<li><%= link_to "Find a League", leagues_path %></li>		
 						
-						    	<li class="divider"></li>
-						  		<li><%= link_to "Enroll in a new league", leagues_user_path(@current_user) %></li>
-						  	</ul>
+									<li class="divider"></li>
+									<% if current_user.player == true %>
+						  			<li><%= link_to "Individually join in a league", leagues_user_path(@current_user) %></li>
+									<% end %>
+								</ul>
+					  
 							</li>
 							
+<!-- Management Tool Menu Bar -->
 							<li class="dropdown">					
 								<a class="dropdown-toggle" data-toggle="dropdown" href="#">
 									Management Tools<b class="caret"></b></a>
 						 		<ul class="dropdown-menu">
-						  		<li><%= link_to "Action1" %></li>
-						  		<li><%= link_to "Action2" %></li>
+									<li>Team Management Tools</li>
+									<li class="divider"></li>
+									<% if current_user.team_manager == true %>
+										<li><%= link_to "Enroll a team in a new league", new_contract_path %></li>
+										<li><%= link_to "Contract new players", new_contract_path %>
+						  			<li><%= link_to "Create a new team", new_team_path %></li>
+										<li></br> </li>
+									<% end %>
+									
+									<% if current_user.league_manager == true %>
+										<li>League Management Tools</li>
+										<li class="divider"></li>
+										<li><%= link_to "Add a News story", leagues_path %>
+										<li><%= link_to "Create a league schedule", new_schedule_path %>
+										<li><%= link_to "Manage league teams", new_team_path %></li>
+						  			<li><%= link_to "Manage league fields", new_team_path %></li>
+									<% end %>
 						  	</ul>
 							</li>
 						<% end %>		
         </ul>
 
-				<!-- Tabs pulled to the Right -->
+<!-- Tabs pulled to the Right -->
 				<ul class="nav pull-right">
 					<% if logged_in? %>
 						<li><%= link_to "Log Out", logout_path, :method => :delete %></li>

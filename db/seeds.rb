@@ -21,10 +21,6 @@ users = User.create([
     password: 'league_manager', password_confirmation: 'league_manager',
     admin: false, player: false, coach: false, team_manager: false, league_manager: true}])
 
-contracts = Contract.create([
-  {user_id: 1, team_id: 1},
-  {user_id: 2, team_id: 1}])
-
 leagues = League.create([
   {name: 'Iowa Premier Soccer League', manager: 'Teddy B'}])
   
@@ -45,6 +41,10 @@ teams = Team.create([
   {name: 'Team10', gender: 'men', home_field: 'field3', location: 'field3', rank: 9},
   {name: 'Team11', gender: 'men', home_field: 'field6', location: 'field6', rank: 6},
   {name: 'Team12', gender: 'men', home_field: 'field8', location: 'field8', rank: 2}])
+
+contracts = Contract.create([
+  {user_id: 1, team_id: 1},
+  {user_id: 2, team_id: 1}])
 
 enrollments = Enrollment.create([
   {season_id: 1, team_id: 1},
@@ -78,8 +78,8 @@ matches = Match.create([
   {schedule_id: 2, score1: 0, score2: 0, played: true},
   {schedule_id: 2, score1: 0, score2: 0, played: false},
   {schedule_id: 2, score1: 0, score2: 0, played: false}])
-  
-caps = Cap.create([
+
+appearances = Appearance.create([
   {team_id: 1, match_id: 1},
   {team_id: 4, match_id: 1},
   {team_id: 2, match_id: 2},
@@ -94,3 +94,9 @@ caps = Cap.create([
   {team_id: 8, match_id: 6},
   {team_id: 4, match_id: 7},
   {team_id: 6, match_id: 7}])
+  
+caps = Cap.create([
+  {user_id: 1, match_id: 1},
+  {user_id: 2, match_id: 1},
+  {user_id: 3, match_id: 1},
+  {user_id: 4, match_id: 1}])

@@ -8,6 +8,9 @@ class User < ActiveRecord::Base
   has_many :contracts
   has_many :teams, :through => :contracts
   
+  has_many :caps
+  has_many :matches, :through => :caps
+  
   has_many :assignments
   has_many :roles, :through => :assignments
   

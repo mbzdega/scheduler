@@ -1,47 +1,28 @@
 <h1>My Profile</h1></br>
 
+<h3>My Information</h3>
 <p><strong>Name: </strong> <%= @user.name %></p>
 <p><strong>E-mail: </strong> <%= @user.email %></p>
 <p><strong>Age: </strong> <%= @user.age %></p>
 
-<div class="row-fluid">
-	<div class="span4">
-		<table class="table table-striped">
-  		<thead>
-    		<tr>
-      		<th>My Roles</th>
-    		</tr>
-  		</thead>
-  		<tbody>
-				<% if @user.admin == true%>
-      	<tr>
-					<td>Administrator</td>
-				</tr>
-				<% end %>
-				<% if @user.player == true%>
-      	<tr>
-					<td>Player</td>
-				</tr>
-				<% end %>
-				<% if @user.coach == true%>
-      	<tr>
-					<td>Coach</td>
-				</tr>
-				<% end %>
-				<% if @user.team_manager == true%>
-      	<tr>
-					<td>Team Manager</td>
-				</tr>
-				<% end %>
-				<% if @user.league_manager == true%>
-      	<tr>
-					<td>League Manager</td>
-				</tr>
-				<% end %>	
-  	</tbody>
-	</table>
-	</div>
-</div>
+<h3>My Roles</h3>
+<ol>
+	<% if @user.admin == true%>
+		<li>Administrator</li>
+	<% end %>
+	<% if @user.player == true%>
+		<li>Player</li>
+	<% end %>
+	<% if @user.coach == true%>
+		<li>Coach</li>
+	<% end %>
+	<% if @user.team_manager == true%>
+		<li>Team Manager</li>
+	<% end %>
+	<% if @user.league_manager == true%>
+		<li>League Manager</li>
+	<% end %>	
+</ol>
 
 
 <div class="form-actions">

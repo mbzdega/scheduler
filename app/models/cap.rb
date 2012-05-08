@@ -1,7 +1,6 @@
 class Cap < ActiveRecord::Base
   
-# Associations
-  belongs_to :team
   belongs_to :match
+  belongs_to :user
   
 end

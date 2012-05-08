@@ -1,5 +1,5 @@
 Scheduler::Application.routes.draw do
-  
+
   root :to => 'pages#home'
   
   resources :leagues do
@@ -20,6 +20,8 @@ Scheduler::Application.routes.draw do
     end
   end
   match '/signup' => 'users#new'
+  
+  resources :contracts, :only => [:new, :create, :show, :destroy]
   
   resources :sessions, :only => [:new, :create, :destroy]
   match '/login' => 'sessions#new'

@@ -3,9 +3,12 @@ class Match < ActiveRecord::Base
 # Associations
   belongs_to :schedule
   belongs_to :field
-  has_many :caps
-  has_many :teams, :through => :caps
+  
+  has_many :appearances
+  has_many :teams, :through => :appearances
 
+  has_many :caps
+  has_many :users, :through => :caps
 
 # Methods
 

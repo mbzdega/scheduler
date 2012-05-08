@@ -36,6 +36,8 @@ class UsersController < ApplicationController
   end
   
   def my_schedule
+    @user = User.find(params[:id])
+    @matches = @user.matches
   end
   
   def teams
